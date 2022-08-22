@@ -1,3 +1,2 @@
-release: python manage.py migrate --noinput
-web: daphne project.asgi:application --port $PORT --bind 0.0.0.0
-worker: REMAP_SIGTERM=SIGQUIT celery -A project worker --loglevel info
+web: daphne project.asgi:application --port $PORT --bind 0.0.0.0 -v2
+chatworker: python manage.py runworker --settings=project.settings -v2
